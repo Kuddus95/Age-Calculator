@@ -1,0 +1,99 @@
+<div align="center">
+<table border="2">
+<td bgcolor=#edffc7>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+<body translate="no">
+
+<div id="container">
+<img src="zoPoGm_data/wLfwA7MS68Zd2KedA1vCX6-zLqDIUSwBC3W4GzgJaZBOlw6mjj0DatL.png" alt="">
+<form id="form" autocomplete="off">
+<div><p align="center" bgcolor=#fd0ee4><strong>বয়স ক্যালকুলেটর </strong></p>
+<h5><p align="center">( জন্ম তারিখ লিখুন ইংরেজিতে) </p></h5></div>
+<label for="date"> জন্ম তারিখ :
+<input type="text" maxlength="2" size="3" id="date" placeholder="Date" autocomplete="on" required="" value="">
+<input type="text" maxlength="2" size="3" id="month" placeholder="Month" autocomplete="on" required="" value="">
+<input type="text" maxlength="4" size="4" id="year" placeholder="Year" autocomplete="on" required="" value="">
+</label>
+<br>
+<br>
+<label for="date2">
+ আজকের তারিখ:
+<input type="text" maxlength="2" size="2" id="date2" placeholder="Date" value="">
+<input type="text" maxlength="2" size="2" id="month2" placeholder="Month" value="">
+<input type="text" maxlength="4" size="3" id="year2" placeholder="Year" value="">
+</label>
+<br>
+<br>
+<p  align="center">
+<button id="calbtn">বয়স হিসাব</button>
+</p>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="age">বয়স : 0 বছর </span>&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="months">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 মাস </span> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<span id="days">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 দিন </span>
+</form>
+</div>
+
+
+<script id="rendered-js">
+var form = document.getElementById("form"),
+bdate = document.getElementById("date"),
+bmonth = document.getElementById("month"),
+byear = document.getElementById("year"),
+date = document.getElementById("date2"),
+month = document.getElementById("month2"),
+year = document.getElementById("year2"),
+age = document.getElementById("age"),
+days = document.getElementById("days"),
+months = document.getElementById("months"),
+today = new Date();
+
+year.value = today.getFullYear();
+month.value = today.getMonth() + 1;
+date.value = today.getDate();
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  var by = Number.parseFloat(byear.value),
+  bm = Number.parseFloat(bmonth.value),
+  bd = Number.parseFloat(bdate.value),
+  ty = Number.parseFloat(year.value),
+  tm = Number.parseFloat(month.value),
+  td = Number.parseFloat(date.value);
+
+  if (td < bd) {
+    days.innerHTML = td - bd + 30 + ' দিন';
+    tm = tm - 1;
+  } else {
+    days.innerHTML = td - bd + 'days';
+  }
+
+  if (tm < bm) {
+    months.innerHTML = tm - bm + 12 + ' মাস,';
+    ty = ty - 1;
+  } else {
+    months.innerHTML = tm - bm + ' months';
+  }
+
+  age.innerHTML = "আজকে আপনার বয়স : " + (ty - by) + ' বছর,';
+
+});
+//# sourceURL=pen.js
+    </script>
+
+</td>
+</table>
+</div>
